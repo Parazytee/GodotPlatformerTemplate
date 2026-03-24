@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://ikmtwko57xmc"]
+
+[ext_resource type="PackedScene" uid="uid://pgsb5k2ecrer" path="res://Scenes/Player.tscn" id="1_bhm8u"]
+[ext_resource type="PackedScene" uid="uid://d0yvu1fq24ph1" path="res://Scenes/PlatformStatic.tscn" id="2_5ms4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ms4e"]
+size = Vector2(7205, 3163)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="GravityHigh" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity = 1960.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GravityHigh"]
+position = Vector2(2515.5, -968.5)
+shape = SubResource("RectangleShape2D_5ms4e")
+
+[node name="Gravitylow" type="Area2D" parent="."]
+gravity_space_override = 3
+gravity = 490.0
+
+[node name="Player" parent="." instance=ExtResource("1_bhm8u")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.57, 0.57)
+
+[node name="PlatformStatic" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(275, 277)
+
+[node name="PlatformStatic2" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(2407, 124)
+
+[node name="PlatformStatic3" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(-565, -187)
+rotation = 1.5708
+
+[node name="PlatformStatic4" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(767, 849)
+rotation = 1.5708
+
+[node name="PlatformStatic5" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(2655, 519)
+rotation = 1.5708
+
+[node name="PlatformStatic6" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(3941, -416)
+rotation = -0.127409
+
+[node name="PlatformStatic7" parent="." instance=ExtResource("2_5ms4e")]
+position = Vector2(2055, 618)
+rotation = 1.5708

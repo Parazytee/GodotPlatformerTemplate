@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://pgsb5k2ecrer"]
+
+[ext_resource type="Script" uid="uid://c08o2grqgjx0q" path="res://Scenes/player.gd" id="1_kyqiw"]
+[ext_resource type="Texture2D" uid="uid://b7tse1yxi6up6" path="res://Assets/monke Boll.png" id="1_rpqav"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpqav"]
+radius = 37.0
+height = 118.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyqiw"]
+size = Vector2(82, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gntrk"]
+size = Vector2(87, 119)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_kyqiw")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rpqav")
+
+[node name="Friction" type="CollisionShape2D" parent="."]
+position = Vector2(1, 54.5)
+shape = SubResource("RectangleShape2D_kyqiw")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -1.5)
+shape = SubResource("RectangleShape2D_gntrk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rpqav")

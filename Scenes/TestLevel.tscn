@@ -1,10 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://ikmtwko57xmc"]
+[gd_scene load_steps=11 format=3 uid="uid://ikmtwko57xmc"]
 
 [ext_resource type="PackedScene" uid="uid://pgsb5k2ecrer" path="res://Scenes/Player.tscn" id="1_bhm8u"]
 [ext_resource type="PackedScene" uid="uid://d0yvu1fq24ph1" path="res://Scenes/PlatformStatic.tscn" id="2_5ms4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ms4e"]
 size = Vector2(7205, 3163)
+
+[sub_resource type="Animation" id="Animation_5ms4e"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_shgkq"]
+resource_name = "run"
+
+[sub_resource type="Animation" id="Animation_ujyaq"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_oy2kj"]
+resource_name = "dashing"
+
+[sub_resource type="Animation" id="Animation_sa0i8"]
+resource_name = "gliding"
+
+[sub_resource type="Animation" id="Animation_rdb2v"]
+resource_name = "diving"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43uqb"]
+_data = {
+&"dashing": SubResource("Animation_oy2kj"),
+&"diving": SubResource("Animation_rdb2v"),
+&"gliding": SubResource("Animation_sa0i8"),
+&"idle": SubResource("Animation_5ms4e"),
+&"jump": SubResource("Animation_ujyaq"),
+&"run": SubResource("Animation_shgkq")
+}
 
 [node name="TestLevel" type="Node2D"]
 
@@ -21,9 +49,15 @@ gravity_space_override = 3
 gravity = 490.0
 
 [node name="Player" parent="." instance=ExtResource("1_bhm8u")]
+position = Vector2(63, -129)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.57, 0.57)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+libraries = {
+&"": SubResource("AnimationLibrary_43uqb")
+}
 
 [node name="PlatformStatic" parent="." instance=ExtResource("2_5ms4e")]
 position = Vector2(275, 277)
@@ -36,7 +70,7 @@ position = Vector2(-565, -187)
 rotation = 1.5708
 
 [node name="PlatformStatic4" parent="." instance=ExtResource("2_5ms4e")]
-position = Vector2(767, 849)
+position = Vector2(795, 849)
 rotation = 1.5708
 
 [node name="PlatformStatic5" parent="." instance=ExtResource("2_5ms4e")]
